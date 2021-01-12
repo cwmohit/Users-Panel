@@ -1,0 +1,70 @@
+<%- include('_header') -%>
+  <div class="container main my-3">
+    <h1 class="text-center my-2">User Management System</h1>
+
+
+    <div class="row mt-3">
+      <div class="col-lg-6 mx-auto col-md-6 col-10">
+        <div class="card">
+          <img class="card-img-top" src='img/user.svg' alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">Manage Your Users</h5>
+            <p class="card-text">We will help you to manage your users.</p>
+            <a href="/addDetails" class="btn btn-primary">Add User</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-10 col-12 col-md-10 m-auto">
+        <% if (records.length> 0){%>
+          <table class="table table-striped table-responsive">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Mobile</th>
+                <th>College</th>
+                <th>Branch</th>
+                <th>Opeartions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% for (let record of records){ %>
+                <tr>
+                  <td>
+                    <%= record.name %>
+                  </td>
+                  <td>
+                    <%= record.email %>
+                  </td>
+                  <td>
+                    <%= record.mobile %>
+                  </td>
+                  <td>
+                    <%= record.college %>
+                  </td>
+                  <td>
+                    <%= record.branch %>
+                  </td>
+                  <td style="display: flex;">
+                    <a href="/updateDetails/<%=record._id%>"><img
+                        src="https://img.icons8.com/bubbles/50/000000/edit.png" /></a>
+                    <a href="/delete/<%=record._id%>" style="border: none;"><img
+                        src="https://img.icons8.com/flat_round/50/000000/delete-sign.png" /></a>
+                  </td>
+
+                </tr>
+
+                <% } %>
+            </tbody>
+          </table>
+          <%}%>
+      </div>
+
+    </div>
+
+  </div>
+  <%- include('_footer') -%>

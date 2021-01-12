@@ -1,0 +1,42 @@
+<%- include('_header') -%>
+    <div class="container my-3">
+        <h1 class="text-center my-2"><%=title%></h1>
+        <% if (alert) { %>
+
+          <div class="alert alert-success alert-dismissible">
+              <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+              <strong>Success !</strong> Your Data has been updated successfully.
+          </div>
+          
+         <%}%>
+        <a href="/" class="btn btn-block btn-danger my-3">Back to Home</a>
+        <form action="/updateDetails/<%=record._id%>" method="POST">
+          <!-- <input type="hidden" name="_id" value="<%=record._id%>"> -->
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="name" class="form-control" value="<%=record.name%>" id="name" name="name" aria-describedby="email" placeholder="Full Name" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email address</label>
+              <input type="email" value="<%=record.email%>" class="form-control" id="email" name="email" aria-describedby="email" placeholder="Enter email" required>
+            </div>
+            <div class="form-group">
+              <label for="mobile">Mobile</label>
+              <input type="mobile" value="<%=record.mobile%>" class="form-control" id="mobile" name="mobile" aria-describedby="mobile" placeholder="Enter Mobile Number" required>
+            </div>
+            <div class="form-group">
+              <label for="college">College</label>
+              <input type="college" value="<%=record.college%>" class="form-control" id="college" name="college" aria-describedby="college" placeholder="College Name" required>
+            </div>
+            <div class="form-group">
+              <label for="branch">Branch</label>
+              <input type="branch" value="<%=record.branch%>" class="form-control" id="branch" name="branch" aria-describedby="branch" placeholder="Enter Stream" required>
+            </div>
+          
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+    </div>
+
+
+
+    <%- include('_footer') -%>
